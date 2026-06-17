@@ -6,14 +6,15 @@
 #    By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/28 12:25:28 by jtarvain          #+#    #+#              #
-#    Updated: 2026/06/09 17:43:42 by jtarvain         ###   ########.fr        #
+#    Updated: 2026/06/17 11:31:46 by jtarvain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:= megaphone
 CFLAGS	:= -Wall -Wextra -Werror
-SRC		:= src/megaphone.cpp
-OBJ		:= $(SRC:%.cpp=%.o)
+SRC		:= megaphone.cpp
+OBJ		:= $(addprefix obj/, $(notdir $(SRC:%.cpp=%.o)))
+VPATH	:= src
 
 all: $(NAME)
 
