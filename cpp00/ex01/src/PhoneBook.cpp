@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 00:19:24 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/06/16 17:52:12 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/06/17 12:34:38 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ int	PhoneBook::search(void) const
 
 void	PhoneBook::print_contact(Contact contact) const
 {
+	std::cout << std::endl;
 	std::cout << "CONTACT INFORMATION" << std::endl;
 	std::cout << "Name: " << contact.get_first_name() << std::endl;
 	std::cout << "Surname: " << contact.get_last_name() << std::endl;
