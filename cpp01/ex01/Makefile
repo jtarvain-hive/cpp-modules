@@ -6,21 +6,20 @@
 #    By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 06:50:09 by jtarvain          #+#    #+#              #
-#    Updated: 2026/06/17 08:49:27 by jtarvain         ###   ########.fr        #
+#    Updated: 2026/06/17 09:04:08 by jtarvain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= braiinz
+NAME		:= moarbraiinz
 CXX			:= c++
 CXXFLAGS	:= -Wall -Wextra -Werror -I./include
 
-HEADER	:= include/Zombie.hpp
-SRC		:= main.cpp \
-		   Zombie.cpp \
-		   newZombie.cpp \
-		   randomChump.cpp
-OBJ		:= $(addprefix obj/, $(notdir $(SRC:%.cpp=%.o)))
-VPATH	:= src
+HEADER		:= include/Zombie.hpp
+SRC			:= main.cpp \
+		   zombieHorde.cpp \
+		   Zombie.cpp
+OBJ			:= $(addprefix obj/, $(notdir $(SRC:%.cpp=%.o)))
+VPATH		:= src
 
 all: $(NAME)
 

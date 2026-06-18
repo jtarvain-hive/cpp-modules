@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/17 07:07:43 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/06/17 08:25:42 by jtarvain         ###   ########.fr       */
+/*   Created: 2026/06/17 07:07:41 by jtarvain          #+#    #+#             */
+/*   Updated: 2026/06/17 09:27:22 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void	randomChump(std::string name)
+int	main(void)
 {
-	Zombie	random_zombie(name);
-	random_zombie.announce();
+	int		n;
+	Zombie	*zombies;
+
+	n = 5;
+	zombies = zombieHorde(n, "Mike");
+	for (int i = 0; i < n; i++)
+	{
+		zombies[i].announce();
+	}
+	delete[] zombies;
+	return (0);
 }

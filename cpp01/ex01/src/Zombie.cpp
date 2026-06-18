@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/17 07:07:43 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/06/17 08:25:42 by jtarvain         ###   ########.fr       */
+/*   Created: 2026/06/17 07:07:44 by jtarvain          #+#    #+#             */
+/*   Updated: 2026/06/17 09:29:39 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
-void	randomChump(std::string name)
+Zombie::Zombie()
 {
-	Zombie	random_zombie(name);
-	random_zombie.announce();
+}
+
+Zombie::~Zombie()
+{
+	std::cout << this->_name << " has died from an arrow to the knee\n";
+}
+
+void	Zombie::announce(void) const
+{
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void	Zombie::set_name(const std::string name)
+{
+	this->_name = name;
 }

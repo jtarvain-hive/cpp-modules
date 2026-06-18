@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 00:19:24 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/06/17 12:34:38 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/06/18 01:48:41 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,40 @@ int	PhoneBook::add(void)
 	Contact		contact;
 	std::string	input;
 
-	input = this->get_input("Enter first name: ");
-	if (std::cin.fail() || std::cin.eof())
-		return (1);
+	do
+	{
+		input = this->get_input("Enter first name: ");
+		if (std::cin.fail() || std::cin.eof())
+			return (1);
+	} while (input.empty());
 	contact.set_first_name(input);
-	input = this->get_input("Enter last name: ");
-	if (std::cin.fail() || std::cin.eof())
-		return (1);
+	do
+	{
+		input = this->get_input("Enter last name: ");
+		if (std::cin.fail() || std::cin.eof())
+			return (1);
+	} while (input.empty());
 	contact.set_last_name(input);
-	input = this->get_input("Enter nickname: ");
-	if (std::cin.fail() || std::cin.eof())
-		return (1);
+	do
+	{
+		input = this->get_input("Enter nickname: ");
+		if (std::cin.fail() || std::cin.eof())
+			return (1);
+	} while (input.empty());
 	contact.set_nickname(input);
-	input = this->get_input("Enter phone number: ");
-	if (std::cin.fail() || std::cin.eof())
-		return (1);
+	do
+	{
+		input = this->get_input("Enter phone number: ");
+		if (std::cin.fail() || std::cin.eof())
+			return (1);
+	} while (input.empty());
 	contact.set_phone_number(input);
-	input = this->get_input("Enter darkest secret: ");
-	if (std::cin.fail() || std::cin.eof())
-		return (1);
+	do
+	{
+		input = this->get_input("Enter darkest secret: ");
+		if (std::cin.fail() || std::cin.eof())
+			return (1);
+	} while (input.empty());
 	contact.set_secret(input);
 	this->add_array(contact);
 	return (0);
@@ -102,20 +117,21 @@ int	PhoneBook::search(void) const
 	int			index;
 
 	index = -1;
-	this->print_interface();
-	do
+	if (this->print_interface())
 	{
-		std::cout << std::endl;
-		input = get_input("Enter index or '69' to quit: ");
-		if (std::cin.eof())
-			return (1);
-		if (!input.empty() && all_digits(input))
-			index = std::stoi(input);
-	} while ((index < 0 || index > (int)this->_size - 1)
-			&& index != 69);
-	if (index == 69)
-		return (0);
-	this->print_contact(this->_contacts[index]);
+		do
+		{
+			std::cout << std::endl;
+			input = get_input("Enter index or (b)ack: ");
+			if (std::cin.eof())
+				return (1);
+			if (!input.empty() && all_digits(input))
+				index = std::stoi(input);
+			if (input == "b")
+				return (0);
+		} while ((index < 0 || index > (int)this->_size - 1));
+		this->print_contact(this->_contacts[index]);
+	}
 	return (0);
 }
 
@@ -126,13 +142,17 @@ void	PhoneBook::print_contact(Contact contact) const
 	std::cout << "Name: " << contact.get_first_name() << std::endl;
 	std::cout << "Surname: " << contact.get_last_name() << std::endl;
 	std::cout << "Nickname: " << contact.get_nickname() << std::endl;
+	std::cout << "Phone number: " << contact.get_phone_number() << std::endl;
 	std::cout << "Their secret: " << contact.get_secret() << std::endl;
 }
 
-void	PhoneBook::print_interface(void) const
+int	PhoneBook::print_interface(void) const
 {
 	if (!this->_size)
+	{
 		std::cout << "Phonebook is empty! ADD new contacts." << std::endl;
+		return (0);
+	}
 	else
 		this->print_header();
 	for (unsigned int i = 0; i < this->_size; i++)
@@ -143,6 +163,7 @@ void	PhoneBook::print_interface(void) const
 		this->print_field(this->_contacts[i].get_nickname());
 		std::cout << std::endl;
 	}
+	return (1);
 }
 
 void	PhoneBook::print_header(void) const

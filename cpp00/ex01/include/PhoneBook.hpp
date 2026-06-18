@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 22:17:21 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/06/16 17:26:22 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/06/17 16:58:49 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	PhoneBook
 
 		void			shift_array(void);
 		void			add_array(Contact contact);
-		void			print_interface(void) const;
+		int				print_interface(void) const;
 		void			print_field(const std::string &str) const;
 		void			print_header(void) const;
 		void			print_contact(Contact contact) const;
