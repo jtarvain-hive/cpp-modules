@@ -5,19 +5,24 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/06/17 06:50:09 by jtarvain          #+#    #+#              #
-#    Updated: 2026/06/18 17:38:19 by jtarvain         ###   ########.fr        #
+#    Created: 2026/06/18 17:31:26 by jtarvain          #+#    #+#              #
+#    Updated: 2026/06/18 17:43:35 by jtarvain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= moarbraiinz
+NAME		:= violence
 CXX			:= c++
-CXXFLAGS	:= -Wall -Wextra -Werror -I./include
+CXXFLAGS	:= -Wall -Wextra -Werror -I.include/
 
-HEADER		:= include/Zombie.hpp
+HEADERS		:= include/Weapon.hpp \
+			   include/HumanA.hpp \
+			   include/HumanB.hpp
+
 SRC			:= main.cpp \
-		   zombieHorde.cpp \
-		   Zombie.cpp
+			   Weapon.cpp \
+			   HumanA.cpp \
+			   HumanB.cpp
+
 OBJ			:= $(addprefix obj/, $(notdir $(SRC:%.cpp=%.o)))
 VPATH		:= src
 
@@ -26,19 +31,13 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-obj:
-	mkdir -p obj
-
-obj/%.o: %.cpp $(HEADER) | obj
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
 clean:
 	rm -rf obj
 
 fclean: clean
-	rm -f $(NAME)
+	rf -f $(NAME)
 
 re: fclean all
 
 .PHONY: all clean fclean re
-.SECONDARY: $(OBJ) obj
+.SECONDARY: $(OBJ)
