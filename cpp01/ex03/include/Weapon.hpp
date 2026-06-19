@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 02:01:45 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/06/19 02:53:54 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/06/19 14:04:10 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class Weapon
 public:
 	Weapon(std::string type);
 	~Weapon();
-	std::string	&getType() const;
-	void		setType(std::string &type);
+	const std::string&	getType(void) const;
+	void				setType(std::string type);
 	
 private:
 	std::string	_type;
