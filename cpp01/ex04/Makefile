@@ -5,15 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/06/18 16:27:17 by jtarvain          #+#    #+#              #
-#    Updated: 2026/06/19 13:27:08 by jtarvain         ###   ########.fr        #
+#    Created: 2026/06/20 20:10:41 by jtarvain          #+#    #+#              #
+#    Updated: 2026/06/20 20:18:27 by jtarvain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= hibrain
+NAME		:= sed
+HEADERS		:= include/
 
 CXX			:= c++
-CXXFLAGS	:= -Wall -Wextra -Werror
+CXXFLAGS	:= -Wall -Wextra -Werror -I./include
 SRC			:= main.cpp
 OBJ			:= $(addprefix obj/, $(notdir $(SRC:%.cpp=%.o)))
 VPATH		:= src
@@ -26,7 +27,7 @@ $(NAME): $(OBJ)
 obj:
 	mkdir -p obj
 
-obj/%.o: %.cpp | obj
+obj/%.o: %.cpp $(HEADERS) | obj
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
@@ -38,3 +39,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+.SECONDARY: $(OBJ) obj
