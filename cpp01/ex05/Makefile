@@ -5,16 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/06/20 20:10:41 by jtarvain          #+#    #+#              #
-#    Updated: 2026/06/22 19:21:16 by jtarvain         ###   ########.fr        #
+#    Created: 2026/06/22 19:33:22 by jtarvain          #+#    #+#              #
+#    Updated: 2026/06/22 19:38:02 by jtarvain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= sed
+NAME		:= harl
+HEADER		:= include/Harl.hpp
 
 CXX			:= c++
-CXXFLAGS	:= -Wall -Wextra -Werror
-SRC			:= main.cpp
+CXXFLAGS	:= -Wall -Wextra -Werror -I./include
+SRC			:= main.cpp \
+			   Harl.cpp
 OBJ			:= $(addprefix obj/, $(notdir $(SRC:%.cpp=%.o)))
 VPATH		:= src
 
@@ -26,7 +28,7 @@ $(NAME): $(OBJ)
 obj:
 	mkdir -p obj
 
-obj/%.o: %.cpp | obj
+obj/%.o: %.cpp $(HEADER) | obj
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
