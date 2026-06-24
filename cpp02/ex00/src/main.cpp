@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/22 19:38:41 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/06/24 12:21:51 by jtarvain         ###   ########.fr       */
+/*   Created: 2026/06/24 00:42:04 by jtarvain          #+#    #+#             */
+/*   Updated: 2026/06/24 00:50:49 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-#define HARL_HPP
+#include <iostream>
 
-#include <string>
-
-typedef enum	e_state
+int main( void )
 {
-	DEBUG,
-	INFO,
-	WARNING,
-	ERROR,
-	DEFAULT
-}	t_state;
-
-class	Harl
-{
-public:
-	Harl();
-	~Harl();
-
-	void	complain(std::string level);
-
-private:
-	void	debug(void);
-	void	info(void);
-	void	warning(void);
-	void	error(void);
-};
-
-#endif
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	return (0);
+}

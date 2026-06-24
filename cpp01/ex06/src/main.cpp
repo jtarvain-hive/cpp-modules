@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 19:38:07 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/06/23 21:29:22 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/06/24 12:22:07 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		std::cerr << "levels: DEBUG, INFO, WARNING, ERROR\n";
-		std::cerr << "Usage: ./harl level\n";
+		std::cout << "levels: DEBUG, INFO, WARNING, ERROR\n";
+		std::cout << "Usage: ./harl level\n";
 		return (1);
 	}
 	input = av[1];
+	state = DEFAULT;
 	if (input == "DEBUG")
 		state = DEBUG;
 	else if (input == "INFO")

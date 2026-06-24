@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/22 19:38:41 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/06/24 12:21:51 by jtarvain         ###   ########.fr       */
+/*   Created: 2026/06/24 01:10:36 by jtarvain          #+#    #+#             */
+/*   Updated: 2026/06/24 02:03:18 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-#define HARL_HPP
+#include "Fixed.hpp"
 
-#include <string>
-
-typedef enum	e_state
+Fixed::Fixed()
 {
-	DEBUG,
-	INFO,
-	WARNING,
-	ERROR,
-	DEFAULT
-}	t_state;
+	this->_value = 0;
+}
 
-class	Harl
+Fixed::Fixed(Fixed const &other)
 {
-public:
-	Harl();
-	~Harl();
+}
 
-	void	complain(std::string level);
+Fixed::Fixed &operator=(Fixed const &other)
+{
+}
 
-private:
-	void	debug(void);
-	void	info(void);
-	void	warning(void);
-	void	error(void);
-};
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called\n";
+}
 
-#endif
+int		Fixed::getRawBits(void) const
+{
+}
+
+void	Fixed::setRawBits(int const raw)
+{
+}
