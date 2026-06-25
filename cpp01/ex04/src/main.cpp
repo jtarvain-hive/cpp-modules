@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 20:18:53 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/06/22 19:20:27 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/06/25 18:15:14 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,15 @@ int	main(int ac, char **av)
 		return (1);
 
 	std::ifstream	infile(filename);
-	std::ofstream	outfile(filename + ".replace");
 
-	if (!infile.is_open() || !outfile.is_open())
+	if (!infile.is_open())
+	{
+		std::cout << "Could not open file\n";
+		return (1);
+	}
+
+	std::ofstream	outfile(filename + ".replace");
+	if (!outfile.is_open())
 	{
 		std::cout << "Could not open file\n";
 		return (1);
