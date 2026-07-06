@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 02:11:14 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/07/04 23:31:19 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/07/06 00:00:00 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,16 @@ int	main(void)
 		alice.takeDamage(10);
 	}
 
+	std::cout << std::endl << "-- FragTrap energy exhaustion: starts with 100 mp --\n";
+	FragTrap	tireless("Tireless");
+	for (int i = 0; i < 102; i++)
+		tireless.attack("wall");
+
+	std::cout << std::endl << "-- FragTrap hp exhaustion: dead trap can't high-five --\n";
+	FragTrap	worn("Worn");
+	worn.takeDamage(1000);
+	worn.highFivesGuys();
+
 	std::cout << std::endl
 		<< "-- Heap allocation tests (new/delete) --\n";
 
@@ -76,6 +86,21 @@ int	main(void)
 	delete heapFrag;
 	delete heapScav;
 	delete heapClap;
+
+	std::cout << std::endl
+		<< "-- Polymorphism: array of ClapTrap* holding every subclass --\n";
+	ClapTrap	*squad[3];
+	squad[0] = new ClapTrap("Base");
+	squad[1] = new ScavTrap("Scav");
+	squad[2] = new FragTrap("Frag");
+
+	for (int i = 0; i < 3; i++)
+		squad[i]->attack("intruder");
+	std::cout << "Deleting the whole squad through ClapTrap* only:\n";
+	for (int i = 0; i < 3; i++)
+		delete squad[i];
+	std::cout << "(each entry ran its own destructor before ~ClapTrap(), "
+		"thanks to 'virtual ~ClapTrap()')\n";
 
 	return (0);
 }
