@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/05 15:16:19 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/07/07 18:11:04 by jtarvain         ###   ########.fr       */
+/*   Created: 2026/07/07 15:10:18 by jtarvain          #+#    #+#             */
+/*   Updated: 2026/07/08 02:40:35 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
 #include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
+#include <iostream>
 
-class Cat	:	public Animal {
-public:
-	Cat();
-	Cat(const Cat &other);
-	Cat&operator=(const Cat &other);
-	~Cat();
+int main() {
+	unsigned int	n = 10;
+	unsigned int	i = 0;
 
-	void	makeSound() const override;
-};
+	Animal			**arr = new Animal*[n];
+	while (i < n) {
+		if (i < n / 2)
+			arr[i] = new Dog;
+		else
+			arr[i] = new Cat;
+		i++;
+	}
+
+	i = 0;
+	while (i < n) {
+		delete arr[i];
+		i++;
+	}
+	delete[] arr;
+
+	return (0);
+}

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/05 15:16:19 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/07/07 18:11:04 by jtarvain         ###   ########.fr       */
+/*   Created: 2026/07/08 01:26:03 by jtarvain          #+#    #+#             */
+/*   Updated: 2026/07/08 01:41:28 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.hpp"
+#include <string>
 
-class Cat	:	public Animal {
+class Brain {
 public:
-	Cat();
-	Cat(const Cat &other);
-	Cat&operator=(const Cat &other);
-	~Cat();
+	Brain();
+	Brain(const Brain &other);
+	Brain &operator=(const Brain &other);
+	~Brain();
 
-	void	makeSound() const override;
+	std::string	_ideas[100];
 };

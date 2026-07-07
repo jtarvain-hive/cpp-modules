@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/07 15:10:18 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/07/07 18:59:45 by jtarvain         ###   ########.fr       */
+/*   Created: 2026/07/08 01:26:06 by jtarvain          #+#    #+#             */
+/*   Updated: 2026/07/08 01:41:58 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
+#include "Brain.hpp"
 #include <iostream>
 
-Dog::Dog() : Animal() {
-	std::cout << "Dog Default Ctor\n";
-	this->_type = "Dog";
+Brain::Brain() {
+	std::cout << "Brain Default Ctor\n";
 }
 
-Dog::Dog(const Dog &other) : Animal(other) {
-	std::cout << "Dog Copy Ctor\n";
+Brain::Brain(const Brain &other) {
+	std::cout << "Brain Copy Ctor\n";
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = other._ideas[i];
 }
 
-Dog &Dog::operator=(const Dog &other) {
-	std::cout << "Dog Assignment Overload\n";
-	if (this != &other)
-		this->_type = other._type;
+Brain &Brain::operator=(const Brain &other) {
+	std::cout << "Brain Assignment Overload\n";
+	if (this != &other) {
+		for (int i = 0; i < 100; i++)
+			this->_ideas[i] = other._ideas[i];
+	}
 	return (*this);
 }
 
-Dog::~Dog() {
-	std::cout << "Dog Dt\n";
-}
-
-void Dog::makeSound() const {
-	std::cout << "Woof\n";
+Brain::~Brain() {
+	std::cout << "Brain Dt\n";
 }
