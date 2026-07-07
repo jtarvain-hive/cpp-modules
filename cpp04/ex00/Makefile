@@ -6,12 +6,16 @@
 #    By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/05 15:09:29 by jtarvain          #+#    #+#              #
-#    Updated: 2026/07/05 15:15:16 by jtarvain         ###   ########.fr        #
+#    Updated: 2026/07/07 14:54:56 by jtarvain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			:= a.out
-HEADER			:= inc/Animal.hpp inc/Dog.hpp inc/Cat.hpp
+HEADER			:= inc/Animal.hpp \
+				   inc/Dog.hpp \
+				   inc/Cat.hpp \
+				   inc/WrongAnimal.hpp \
+				   inc/WrongCat.hpp
 
 CXX				:= c++
 CXXFLAGS		:= -Wall -Wextra -Werror -I./inc std=c++17
@@ -19,7 +23,9 @@ CXXFLAGS		:= -Wall -Wextra -Werror -I./inc std=c++17
 SRC				:= main.cpp \
 				   Animal.cpp \
 				   Dog.cpp \
-				   Cat.cpp
+				   Cat.cpp \
+				   WrongAnimal.cpp \
+				   WrongCat.cpp
 OBJ				:= $(addprefix obj/, $(notdir $(SRC:%.cpp=%.o)))
 
 VPATH			:= src

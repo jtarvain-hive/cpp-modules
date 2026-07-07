@@ -6,7 +6,18 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 15:16:19 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/07/05 15:16:55 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/07/07 16:28:01 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
+class Dog	:	public Animal {
+public:
+	Dog();
+	Dog(const Dog &other);
+	Dog &operator=(const Dog &other);
+	~Dog();
+
+	void	makeSound() const override;
+}
