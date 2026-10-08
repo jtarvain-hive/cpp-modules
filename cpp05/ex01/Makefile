@@ -6,16 +6,17 @@
 #    By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/29 16:15:42 by jtarvain          #+#    #+#              #
-#    Updated: 2026/10/08 11:07:14 by jtarvain         ###   ########.fr        #
+#    Updated: 2026/10/08 11:06:38 by jtarvain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= a.out
-HEADER		:= Bureaucrat.hpp
+HEADER		:= inc/Bureaucrat.hpp
 CXX			:= c++
-CXXFLAGS	:= -Wall -Wextra -Werror -I.
+CXXFLAGS	:= -Wall -Wextra -Werror -Iinc
 SRC			:= main.cpp Bureaucrat.cpp
-OBJ			:= $(addprefix obj/, $(notdir $(SRC:%.cpp=%.o)))
+OBJ			:= $(addprefix obj/, $(SRC:%.cpp=%.o))
+VPATH		:= src
 
 all: $(NAME)
 
@@ -25,7 +26,7 @@ $(NAME): $(OBJ)
 obj:
 	mkdir -p obj
 
-obj/%.o: %.cpp $(HEADER)| obj
+obj/%.o: %.cpp $(HEADER) | obj
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
