@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 18:31:25 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/06 23:49:35 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/10/08 10:49:23 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,26 @@
 
 class	Bureaucrat {
 public:
+	class	GradeTooHighException : public std::exception {
+	public:
+		const char	*what() const noexcept override;
+	};
+
+	class	GradeTooLowException : public std::exception {
+	public:
+		const char	*what() const noexcept override;
+	};
+
 	Bureaucrat();
-	Bureaucrat(const int grade);
+	Bureaucrat(const std::string &name, const int grade);
 	Bureaucrat(const Bureaucrat &other);
 	Bureaucrat &operator=(const Bureaucrat &other);
 	~Bureaucrat();
 
-	void	setName(const std::string &name);
 	void	setGrade(const int);
 
-	const std::string	getName();
-	const int			getGrade();
+	const std::string	&getName() const;
+	int					getGrade() const;
 
 	void	incrementGrade();
 	void	decrementGrade();
