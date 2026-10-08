@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/05 15:16:18 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/05 11:59:18 by jtarvain         ###   ########.fr       */
+/*   Created: 2026/09/30 09:41:06 by jtarvain          #+#    #+#             */
+/*   Updated: 2026/09/30 09:41:46 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Bureaucrat.hpp"
 
-#include <string>
+int	main(void) {
 
-class	Animal {
-public:
-	Animal();
-	Animal(const Animal &other);
-	Animal &operator=(const Animal &other);
-	virtual ~Animal();
-
-	const std::string	&getType(void) const;
-	virtual void		makeSound(void) const = 0;
-
-protected:
-	std::string			_type;
-};
+	return (0);
+}
