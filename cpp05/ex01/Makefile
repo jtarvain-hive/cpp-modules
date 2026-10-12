@@ -6,15 +6,15 @@
 #    By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/29 16:15:42 by jtarvain          #+#    #+#              #
-#    Updated: 2026/10/08 11:06:38 by jtarvain         ###   ########.fr        #
+#    Updated: 2026/10/12 14:14:31 by jtarvain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= a.out
-HEADER		:= inc/Bureaucrat.hpp
+HEADER		:= inc/Bureaucrat.hpp inc/Form.hpp
 CXX			:= c++
 CXXFLAGS	:= -Wall -Wextra -Werror -Iinc
-SRC			:= main.cpp Bureaucrat.cpp
+SRC			:= main.cpp Bureaucrat.cpp Form.cpp
 OBJ			:= $(addprefix obj/, $(SRC:%.cpp=%.o))
 VPATH		:= src
 

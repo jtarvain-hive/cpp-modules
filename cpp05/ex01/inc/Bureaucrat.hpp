@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 18:31:25 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/09 13:29:42 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/10/12 13:55:26 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ public:
 
 	void	incrementGrade();
 	void	decrementGrade();
-	void	signForm();
+	void	signForm(Form &form);
 
 private:
 	const std::string	_name;

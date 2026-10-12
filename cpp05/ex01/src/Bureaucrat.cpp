@@ -6,11 +6,12 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 18:40:28 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/09 13:54:43 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/10/12 14:13:17 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <string>
 #include <iostream>
 #include <exception>
@@ -63,12 +64,13 @@ int Bureaucrat::getGrade() const {
 	return (_grade);
 }
 
-void Bureaucrat::signForm() {
+void Bureaucrat::signForm(Form &form) {
 	try {
-		Form::signForm(this);
+		form.beSigned(*this);
 	}
 	catch (std::exception &e) {
-		std::cerr << _name << " couldn't sign " << 
+		std::cerr << this->_name << " couldn't sign " << form.getName() << " because "
+			<< e.what() << std::endl;
 	}
 }
 

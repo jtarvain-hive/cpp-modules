@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 11:13:43 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/09 13:29:33 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/10/12 14:15:13 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ public:
 
 	const std::string	&getName() const;
 	bool				getSigned() const;
-	const int			getSignGrade() const;
-	const int			getExecGrade() const;
+	int					getSignGrade() const;
+	int					getExecGrade() const;
 
-	void	beSigned(const Bureaucrat &a) const;
+	void	beSigned(const Bureaucrat &a);
 	
 private:
 	const std::string	_name;
