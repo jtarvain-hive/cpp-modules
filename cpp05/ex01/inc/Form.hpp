@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 11:13:43 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/08 12:06:58 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/10/09 13:29:33 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include <string>
 #include <iostream>
 #include <exception>
+#include "Bureaucrat.hpp"
+
+class	Bureaucrat;
 
 class	Form {
 public:
@@ -33,16 +36,16 @@ public:
 	Form &operator=(const Form &other);
 	~Form();
 
-	const std::string	&getName();
-	bool				getSigned();
-	const int			getSignGrade();
-	const int			getExecGrade();
+	const std::string	&getName() const;
+	bool				getSigned() const;
+	const int			getSignGrade() const;
+	const int			getExecGrade() const;
 
-	bool	beSigned(const Bureaucrat &a);
+	void	beSigned(const Bureaucrat &a) const;
 	
 private:
 	const std::string	_name;
-	bool				_signed = false;
+	bool				_signed;
 	const int			_signGrade;
 	const int			_execGrade;
 

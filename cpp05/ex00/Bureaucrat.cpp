@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 18:40:28 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/08 10:50:21 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/10/09 13:55:11 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Bureaucrat::Bureaucrat(const std::string &name, const int grade)
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other)
-	: _grade(other._grade) {
+	: _name(other._name), _grade(other._grade) {
 	if (this->_grade < 1)
 		throw (GradeTooHighException());
 	if (this->_grade > 150)

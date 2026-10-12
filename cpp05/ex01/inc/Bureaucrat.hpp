@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 18:31:25 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/08 12:06:15 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/10/09 13:29:42 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include <string>
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
+
+class	Form;
 
 class	Bureaucrat {
 public:
@@ -47,5 +50,5 @@ private:
 	const std::string	_name;
 	int					_grade;
 };
-	// overload << to print to stdout <name>, bureaucrat grade <grade>
+
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &a);
