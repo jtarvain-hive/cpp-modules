@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 11:13:43 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/12 15:30:30 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/10/13 15:10:06 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 	AForm();
 	AForm(const AForm &other);
 	AForm &operator=(const AForm &other);
-	~AForm();
+	virtual ~AForm();
 
 	const std::string	&getName() const;
 	bool				getSigned() const;
@@ -42,6 +42,9 @@ public:
 	int					getExecGrade() const;
 
 	void	beSigned(const Bureaucrat &a);
+protected:
+	void			execute(const Bureaucrat &executor) const;
+	virtual void	action(const std::string &target) const = 0;
 	
 private:
 	const std::string	_name;
