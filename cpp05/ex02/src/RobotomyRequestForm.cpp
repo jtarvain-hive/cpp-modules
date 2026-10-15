@@ -6,21 +6,31 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 15:34:12 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/13 18:45:22 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/10/14 13:17:51 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include <string>
 
 RobotomyRequestForm::RobotomyRequestForm()
-	: _name("Default"), _target("Default"), _signGrade(72), _execGrade(45) {
+	: AForm("RobotomyRequestForm", 72, 45), _target("Default") {
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
-	: _name
-
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
-	: _name(other._name), _target(other._target), _signGrade(other._signGrade)
-	  , _execGrade(other._execGrade) {
+	: AForm("RobotomyRequestForm", 72, 45), _target(target) {
 }
 
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
+	: AForm(other), _target(other._target) {
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other) {
+	if (this != &other) {
+		AForm::operator=(other);
+		this->_target = other._target;
+	}
+	return (*this);
+}
+
+RobotomyRequestForm::~RobotomyRequestForm() {}

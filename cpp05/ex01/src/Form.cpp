@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 11:13:45 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/12 14:23:15 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/10/15 09:12:36 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ const char	*Form::GradeTooLowException::what() const noexcept {
 }
 
 Form::Form() : _name("Aform"), _signed(false), _signGrade(74), _execGrade(50) {
+}
+
+Form::Form(const std::string &name, int signGrade, int execGrade)
+	: _name(name), _signed(false), _signGrade(signGrade), _execGrade(execGrade) {
 }
 
 Form::Form(const Form &other) : _name("Aform"), _signed(other._signed),

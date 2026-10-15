@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 18:31:25 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/08 10:49:23 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/10/14 21:38:17 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ public:
 	Bureaucrat &operator=(const Bureaucrat &other);
 	~Bureaucrat();
 
-	void	setGrade(const int);
-
 	const std::string	&getName() const;
 	int					getGrade() const;
+
+	void	setGrade(const int grade);
 
 	void	incrementGrade();
 	void	decrementGrade();

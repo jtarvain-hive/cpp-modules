@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 18:40:28 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/09 13:55:11 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/10/14 22:01:04 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,20 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
 Bureaucrat::~Bureaucrat() {
 }
 
-void Bureaucrat::setGrade(const int grade) {
-	if (grade < 1)
-		throw (GradeTooHighException());
-	if (grade > 150)
-		throw (GradeTooLowException());
-	this->_grade = grade;
-}
-
 const std::string &Bureaucrat::getName() const {
 	return (this->_name);
 }
 
 int Bureaucrat::getGrade() const {
 	return (this->_grade);
+}
+
+void	Bureaucrat::setGrade(const int grade) {
+	if (grade > 150)
+		throw (GradeTooLowException());
+	if (grade < 1)
+		throw (GradeTooLowException());
+	this->_grade = grade;
 }
 
 void Bureaucrat::incrementGrade() {

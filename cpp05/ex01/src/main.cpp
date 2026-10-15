@@ -6,44 +6,91 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 09:41:06 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/08 10:55:49 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/10/15 09:35:00 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
+#include <exception>
 
 int	main(void) {
-	// Default constructor tests
+	// ex00 tests
+	std::cout << "--- EX00 TESTS ---"
+		<< std::endl;
 	try {
-		Bureaucrat	a;
-		Bureaucrat	b;
-
-		std::cout << a << " and " << b << std::endl;
-		a.decrementGrade();
-		b.incrementGrade();
+		Bureaucrat	a("Axel", 500); // throw grade too low
+		std::cout << a << std::endl;
+	} catch (std::exception &e) {
+		std::cerr << "Exception caught: "
+			<< e.what()
+			<< std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException &e) {
-		std::cout << "Exception caught: " << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException &e) {
-		std::cout << "Exception caught: " << e.what() << std::endl;
-	}
-
-	// String int constructor tests
 	try {
-		Bureaucrat	a("Alice", 1);
-		Bureaucrat	b("Bob", 150);
+		Bureaucrat	b("Bart", -300); // throw grade too high
+		std::cout << b << std::endl;
+	} catch (std::exception &e) {
+		std::cerr << "Exception caught: "
+			<< e.what()
+			<< std::endl;
+	}
+
+	// incrementGrade() tests
+	std::cout << "Increment Grade method tests\n";
+	try {
+		Bureaucrat	c("Chad", 5);
+		std::cout << c << std::endl;
+		for (int i = 0; i < 1000; ++i) {
+			std::cout << "Chad's grade: "
+				<< c.getGrade()
+				<< std::endl;
+			c.incrementGrade();
+		}
+	} catch (std::exception &e) {
+		std::cerr << "Exception caught: "
+			<< e.what()
+			<< std::endl;
+	}
+	// decrementGrade() tests
+	std::cout << "Increment Grade method tests\n";
+	try {
+		Bureaucrat	c("Chad", 130);
+		std::cout << c << std::endl;
+		for (int i = 0; i < 1000; ++i) {
+			std::cout << "Chad's grade: "
+				<< c.getGrade()
+				<< std::endl;
+			c.decrementGrade();
+		}
+	} catch (std::exception &e) {
+		std::cerr << "Exception caught: "
+			<< e.what()
+			<< std::endl;
+	}
+
+	// ex01 tests
+	std::cout << "--- EX01 TESTS ---"
+		<< std::endl;
+
+	try {
+		Bureaucrat	a("Alice", 74);
+		Form		aform;
+
+		std::cout << a << std::endl;
+		std::cout << aform << std::endl;
+
+		// attempt to sign form
+		aform.beSigned(a);
 
 		a.decrementGrade();
-		std::cout << a << std::endl;
-		a.incrementGrade();
-		std::cout << a << std::endl;
-		a.incrementGrade();
-		std::cout << a << std::endl;
-	}
-	catch (std::exception &e) {
-		std::cout << "Exception caught: " << e.what() << std::endl;
+
+		// attempt again, this time throws
+		aform.beSigned(a);
+	} catch (std::exception &e) {
+		std::cerr << "Exception caught: "
+			<< e.what()
+			<< std::endl;
 	}
 
 	return (0);

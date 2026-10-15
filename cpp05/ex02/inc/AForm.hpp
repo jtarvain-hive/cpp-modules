@@ -6,7 +6,7 @@
 /*   By: jtarvain <jtarvain@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 11:13:43 by jtarvain          #+#    #+#             */
-/*   Updated: 2026/10/13 15:10:06 by jtarvain         ###   ########.fr       */
+/*   Updated: 2026/10/15 10:45:34 by jtarvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,13 @@ public:
 		const char	*what() const noexcept override;
 	};
 
+	class	FormNotSignedException : public std::exception {
+	public:
+		const char	*what() const noexcept override;
+	};
+
 	AForm();
+	AForm(const std::string &name, int signGrade, int execGrade);
 	AForm(const AForm &other);
 	AForm &operator=(const AForm &other);
 	virtual ~AForm();
@@ -42,9 +48,10 @@ public:
 	int					getExecGrade() const;
 
 	void	beSigned(const Bureaucrat &a);
+
 protected:
 	void			execute(const Bureaucrat &executor) const;
-	virtual void	action(const std::string &target) const = 0;
+	virtual void	action() const = 0;
 	
 private:
 	const std::string	_name;
